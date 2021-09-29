@@ -1,0 +1,15 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <a href="/">
+        <h1>
+            Homepage
+        </h1>
+    </a>
+    <h1>Checkout</h1>
+    <div>
+        <div>Total</div>
+        <div>R$ {{total | number_format(2) }}</div> 
+    </div>
+    {{ form(form)}}
+    
+    {% endblock %}

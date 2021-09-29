@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <h1>
+        Homepage
+            
+    </h1>
+    <div class="row">
+        {% for bike in bikes %}
+
+            <div class="col-12 col-sm-6 col-xl-4">
+                {% if bike.image %}
+                    <a href="/products/{{ bike.id }}">
+                        <img src="/images/{{ bike.image }}" alt="">
+                        {% endif %}
+                        <h2>
+                            <a href="/products/{{ bike.id }}">
+                                {{ bike.name }}
+                            </a>
+                        </h2>
+                        R$ 
+                                                
+                        {{ bike.price }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endblock %}
+        

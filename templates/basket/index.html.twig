@@ -1,0 +1,34 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<div class="breadcrumbs">
+    <a href="/">Home</a>
+</div>
+<h1>
+    Basket
+</h1>
+<div class="row">  
+    {% for basket in basket %}
+    <div class="col-12 col-sm-6 col-xl-4">
+        {% if basket.image %}<img src="/images/{{basket.image}}" alt="">     {% endif %}
+        <p>{{basket.name}}</p>
+        <strong>${{basket.price | number_format}}</strong>
+        <div>
+            <form method="post">
+                <button class="btn btn-success">Remove</button>
+                <input type="hidden" name="id" value="{{ basket.id }}"> 
+            </form>
+        </div> 
+    </div> 
+    {% endfor %}
+    <div class="col-12">
+        <div class="total">Total</div>
+        <div class="total">R$ {{total | number_format(2)}}</div> 
+        </div>
+</div>
+         
+</div>
+<form action="checkout" class="basket-form">
+    <button class="btn btn-success">Proced to checkout</button>
+</form>
+{% endblock %}
